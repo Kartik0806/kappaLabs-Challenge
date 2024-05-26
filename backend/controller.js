@@ -5,7 +5,7 @@ import { generatePrompt, regeneratePrompt } from './globalPrompt.js';
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
-const api_key = `Bearer ${process.env.EDAN_AI_API_KEY}`;
+const api_key = `Bearer ${process.env.EDEN_AI_API_KEY}`;
 
 export const generateHandler = async (req, res) => {
     const { brandPositioning, features, tone, length } = req.body;
