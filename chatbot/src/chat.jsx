@@ -38,7 +38,7 @@ const ChatbotForm = () => {
             features,
             tone,
             length,
-            generatedCopy: output
+            output
         };
 
         try {
@@ -93,8 +93,6 @@ const ChatbotForm = () => {
             output,
             modificationOption
         };
-
-        alert(selectedText)
         try {
             const response = await axios.post('http://localhost:5000/regenerate', payload);
             setOutput(response.data.result);
@@ -108,7 +106,7 @@ const ChatbotForm = () => {
 // handles regenration options
     const handleModificationOptionChange = (e) => {
         setModificationOption(e.target.value);
-        alert("changed")
+        // alert("changed")
         handleRegenerate();
         setDropdownVisible(false);
         setModificationOption('');
@@ -117,10 +115,10 @@ const ChatbotForm = () => {
 
     return (
         <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto', border: '1px solid #ccc', borderRadius: '8px' }}>
-            <h2>Reference Front End</h2>
+            <h2>Real Estate Developer's brochure Generator</h2>
             <div style={{ marginBottom: '15px' }}>
                 <label>
-                    Input A: Brand Positioning
+                    Brand Positioning
                     <input
                         type="text"
                         value={brandPositioning}
@@ -131,7 +129,7 @@ const ChatbotForm = () => {
             </div>
             <div style={{ marginBottom: '15px' }}>
                 <label>
-                    Input B: Features
+                    Features
                     <input
                         type="text"
                         value={features}
@@ -142,7 +140,7 @@ const ChatbotForm = () => {
             </div>
             <div style={{ marginBottom: '15px' }}>
                 <label>
-                    Input C: Tone
+                    Tone
                     <select value={tone} onChange={(e) => setTone(e.target.value)} style={{ display: 'block', width: '100%', marginTop: '5px' }}>
                         <option value="Casual">Casual</option>
                         <option value="Formal">Formal</option>
@@ -152,7 +150,7 @@ const ChatbotForm = () => {
             </div>
             <div style={{ marginBottom: '15px' }}>
                 <label>
-                    Input D: Length
+                    Length
                     <select value={length} onChange={(e) => setLength(e.target.value)} style={{ display: 'block', width: '100%', marginTop: '5px' }}>
                         <option value="Short">Short</option>
                         <option value="Medium">Medium</option>
